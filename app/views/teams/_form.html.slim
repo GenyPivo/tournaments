@@ -1,0 +1,10 @@
+.ui.middle.aligned.center.aligned.grid
+  .row
+    .ui.large.form
+      = simple_form_for @team do |f|
+        .field
+          = f.input :name
+        .field
+          = f.input :logo, as: :file
+        .field
+          = f.button :submit, class: 'ui fluid large teal submit button'

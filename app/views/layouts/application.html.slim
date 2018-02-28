@@ -1,0 +1,20 @@
+doctype strict
+html
+  head
+    title Tour
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    .ui.fixed.inverted.menu
+      .ui.container
+        = link_to 'Teams', teams_path, class: 'item'
+        = link_to 'Tournaments', teams_path, class: 'item'
+        - if current_user
+          - if current_user.teams.count == 0
+            = link_to 'Add your team', new_team_path, class: 'item'
+          = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'item'
+        - else
+          = link_to 'Log in via starladder', user_starladder_omniauth_authorize_path, class: 'item'
+    = yield

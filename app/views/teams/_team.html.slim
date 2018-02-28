@@ -1,17 +1,15 @@
-.four.wide.column
+.four.wide.column.team-border
   .ui.image.fit-image
     = image_tag team.logo.url(:medium)
   .ui.row
     | Team name:
     = team.name
   .ui.row
-    | Creation date:
-    = team.created_at
+    | Creation date: 
+    = date_format(team.created_at)
   .ui.row
     | Team owner:
     = team.user.nick
-  - if current_user == team.user
-    .ui.row
-      = link_to  'Delete team', team_path(team), method: :delete, data: { confirm: 'Are you sure?' }
-    .ui.row
-      = link_to  'Edit team', team_path(team)
+  - if team.user == current_user
+    = link_to  'Edit team', edit_team_path(team), class: 'ui button orange'
+    = link_to  'Delete team', team_path(team), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui button red'
