@@ -1,3 +1,2 @@
-h1
-  = current_user.nick
-= link_to 'sdsd', destroy_user_session_path, method: 'delete'
+= link_to 'Add new team', new_team_path, class: 'ui primary button left floated'
+= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'ui secondary button right floated'
