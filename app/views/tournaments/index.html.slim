@@ -1,0 +1,18 @@
+.ui.grid
+  - @tournaments.each do |tournament|
+    .four.wide.column.team-border
+      .ui.row
+        | Tournament name:
+        = tournament.name
+      .ui.row
+        | Participants number:
+        span.count data-count="#{tournament.id}"
+          = tournament.teams.count
+      .ui.row
+        = link_to 'Tournament participants', tournament_path(tournament)
+      .ui.row
+        - if current_user.try(:team)
+          - if tournament.teams.include?(current_user.team)
+            button.ui.button.red.exit data-tid="#{tournament.id}" Exit
+          - else
+            button.ui.button.blue.participate data-tid="#{tournament.id}" Participate

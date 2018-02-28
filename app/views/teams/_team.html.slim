@@ -5,11 +5,11 @@
     | Team name:
     = team.name
   .ui.row
-    | Creation date: 
+    | Creation date:
     = date_format(team.created_at)
   .ui.row
     | Team owner:
     = team.user.nick
-  - if team.user == current_user
+  - if team.user == current_user && !without_actions
     = link_to  'Edit team', edit_team_path(team), class: 'ui button orange'
     = link_to  'Delete team', team_path(team), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui button red'

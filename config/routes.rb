@@ -7,5 +7,10 @@ Rails.application.routes.draw do
   get 'log_in', to: 'root#log_in'
 
   resources :teams
-
+  resources :tournaments do
+    collection do
+      post :exit
+      post :participate
+    end
+  end
 end

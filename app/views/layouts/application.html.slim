@@ -10,9 +10,9 @@ html
     .ui.fixed.inverted.menu
       .ui.container
         = link_to 'Teams', teams_path, class: 'item'
-        = link_to 'Tournaments', teams_path, class: 'item'
+        = link_to 'Tournaments', tournaments_path, class: 'item'
         - if current_user
-          - if current_user.teams.count == 0
+          - unless current_user.team
             = link_to 'Add your team', new_team_path, class: 'item'
           = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'item'
         - else
