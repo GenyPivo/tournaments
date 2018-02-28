@@ -16,6 +16,8 @@ class TeamsController < ApplicationController
     team.user = current_user
     if team.save
       redirect_to root_path
+    else
+      redirect_to new_team_path, flash: { error: team.errors.full_messages.join(',') }
     end
   end
 
@@ -31,6 +33,8 @@ class TeamsController < ApplicationController
   def update
     if @team.update(team_params)
       redirect_to root_path
+    else
+      redirect_to edit_team_path, flash: { error: @team.errors.full_messages.join(',') }
     end
   end
 

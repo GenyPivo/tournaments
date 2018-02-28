@@ -17,4 +17,7 @@ html
           = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'item'
         - else
           = link_to 'Log in via starladder', user_starladder_omniauth_authorize_path, class: 'item'
+    - if flash[:error]
+      .container.ui.negative.message style='margin-top: 50px;'
+        = flash[:error]
     = yield

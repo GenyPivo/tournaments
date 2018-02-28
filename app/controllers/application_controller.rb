@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       super
     else
-      redirect_to log_in_path, :notice => 'Page only for authorized users'
+      redirect_to teams_path, flash: { error: 'Page only for authorized users' }
     end
   end
 end

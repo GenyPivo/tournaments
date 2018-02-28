@@ -4,7 +4,6 @@ Rails.application.routes.draw do
              path: ''
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'teams#index'
-  get 'log_in', to: 'root#log_in'
 
   resources :teams
   resources :tournaments do

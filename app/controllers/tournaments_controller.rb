@@ -1,6 +1,6 @@
 class TournamentsController < ApplicationController
-  before_action :find_tournament, except: [:index]
-  before_action :authenticate_user!
+  before_action :find_tournament, except: [:index, :exit]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @tournaments = Tournament.all
