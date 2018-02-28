@@ -248,8 +248,7 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
-
-
+  config.secret_key = '93b18ef1854b8fa1576bf21d3b8c1f50fd7614aeb8798feea265a5c6d2447a03ac1f1784fe3b6f90c41363add0138ee4b21c6632e5ac8425d40c6a6bbbe4089a'
   config.omniauth :starladder, '957c3669c5ec514fe0b895f9555f5eadda2fbaf5d5757a4a8c926d4f02b013f9',
                   'ddddc41aa306efd9361b5769bdafabc2d273e78af40cc3ba47b54eb9bd631f59',
                   strategy_class: Omniauth::Strategies::Starladder

@@ -1,0 +1,14 @@
+version: '3'
+services:
+  db:
+    image: postgres
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+        - RAILS_ENV=production
+        - SECRET_KEY_BASE=2950a04a62aa4a1013552448d838158763b25ee3a88e83992212411241beb87f7ba01b70ba5abe69418a7761d4d61569b8a2dd820ef1f2f1abb5b8deb4470cf6
