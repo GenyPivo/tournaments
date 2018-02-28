@@ -1,0 +1,17 @@
+.four.wide.column
+  .ui.image.fit-image
+    = image_tag team.logo.url(:medium)
+  .ui.row
+    | Team name:
+    = team.name
+  .ui.row
+    | Creation date:
+    = team.created_at
+  .ui.row
+    | Team owner:
+    = team.user.nick
+  - if current_user == team.user
+    .ui.row
+      = link_to  'Delete team', team_path(team), method: :delete, data: { confirm: 'Are you sure?' }
+    .ui.row
+      = link_to  'Edit team', team_path(team)

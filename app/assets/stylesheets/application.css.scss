@@ -15,3 +15,17 @@
  */
 
 @import "semantic-ui";
+
+.space-between {
+  justify-content: space-between;
+}
+
+.fit-image {
+  width: 100px;
+  height: 100px;
+
+  img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+}

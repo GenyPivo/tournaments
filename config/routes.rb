@@ -3,7 +3,7 @@ Rails.application.routes.draw do
              controllers: { omniauth_callbacks: "users/omniauth_callbacks" },
              path: ''
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'root#index'
+  root 'teams#index'
   get 'log_in', to: 'root#log_in'
 
   resources :teams
